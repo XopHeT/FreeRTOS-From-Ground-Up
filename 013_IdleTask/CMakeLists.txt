@@ -1,4 +1,4 @@
-set(TargetName 011_ExecutingTasksPeriodically)
+set(TargetName 013_IdleTask)
 add_subdirectory(../3rdParty 3rdParty)
 add_subdirectory(FreeRTOSSettings)
 

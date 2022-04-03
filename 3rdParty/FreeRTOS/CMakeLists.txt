@@ -1,7 +1,12 @@
-add_library(FreeRTOS croutine.c event_groups.c list.c queue.c stream_buffer.c tasks.c timers.c portable/MSVC-MingW/port.c)
-target_include_directories(FreeRTOS PUBLIC portable/MSVC-MingW include)
-# To use the library
-# 1: target_include_directories(FreeRTOS PUBLIC DIRECTORY with FreeRTOSConfig.h)
-# 2: target_sources(FreeRTOS PRIVATE MISSING_C_FILES_LIST)
-# 3: target_include_directories(YOUR_TARGET_NAME
-#        PRIVATE $<TARGET_PROPERTY:FreeRTOS,INTERFACE_INCLUDE_DIRECTORIES>) # add headers used by the library to the target
+SET(FreeRTOS_Sources
+        ${CMAKE_CURRENT_SOURCE_DIR}/croutine.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/event_groups.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/list.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/queue.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/stream_buffer.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/tasks.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/timers.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/portable/MSVC-MingW/port.c)
+list(APPEND FreeRTOS_Headers ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/portable/MSVC-MingW/)
+SET(FreeRTOS_Sources ${FreeRTOS_Sources} PARENT_SCOPE)
+SET(FreeRTOS_Headers ${FreeRTOS_Headers} PARENT_SCOPE)
