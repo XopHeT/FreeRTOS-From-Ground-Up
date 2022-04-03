@@ -3,4 +3,6 @@ project(FreeRTOSFromGroundUp)
 
 set(CMAKE_CXX_STANDARD 20)
 
+add_subdirectory(3rdParty)
 add_subdirectory(001_TaskCreation)
+add_subdirectory(003_TaskParameters)

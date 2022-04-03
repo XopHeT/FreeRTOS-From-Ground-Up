@@ -1,5 +1,3 @@
-add_subdirectory(../3rdParty 3rdParty)
-
 add_executable(001_TaskCreation main.cpp)
 target_link_libraries(001_TaskCreation FreeRTOS)
 
