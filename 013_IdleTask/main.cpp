@@ -9,8 +9,6 @@ struct TaskStack {
 };
 
 TaskStack BlueLed;
-TaskStack RedLed;
-TaskStack GreenLed;
 uint32_t IdleCounter;
 
 [[noreturn]] void vLEDControllerTask(void *pvParameters);
@@ -18,11 +16,7 @@ uint32_t IdleCounter;
 
 int main() {
   xTaskCreateStatic(vLEDControllerTask, "Blue LED controller", BlueLed.stackDepth,
-          (void *)"B: Blue", 2, BlueLed.stack, &BlueLed.task);
-  xTaskCreateStatic(vLEDControllerTask, "Red LED controller", RedLed.stackDepth,
-          (void *)"R: Red", 2, RedLed.stack, &RedLed.task);
-  xTaskCreateStatic(vLEDControllerTask, "Green LED controller", GreenLed.stackDepth,
-          (void *)"G: Green", 2, GreenLed.stack, &GreenLed.task);
+          (void *)"Blue", 2, BlueLed.stack, &BlueLed.task);
 
   vTaskStartScheduler();
 
